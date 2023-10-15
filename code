@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool isPP(int n) 
+{
+    while(n > 99)
+    {
+        n = n / 10;
+    }
+    
+    int radicaln = sqrt(n);
+    
+    if(radicaln * radicaln == n)
+    {
+        return true;
+    }
+    
+    return false;
+}
+
+int main()
+{
+    ifstream fin("elempp.in");
+    ofstream fout("elempp.out");
+    
+    long long n, v[1001], i;
+    
+    fin >> n;
+    
+    for(i = 1; i <= n; i++)
+    {
+        fin >> v[i];
+    }
+    
+    for(i = 1; i <= n; i++)
+    {
+        if(isPP(v[i]) == true)
+        {
+            fout << v[i] << " ";
+        }
+    }
+
+    return 0;
+}
